@@ -2,7 +2,7 @@
 <html lang="en">
 
     <?php
-        include_once("header.html");
+        include_once("../html/header.html");
     ?>
 
     <main>
@@ -11,7 +11,7 @@
     </main>
 
     <?php
-    include_once("footer.html");
+    include_once("../html/footer.html");
     ?>
 
 </html>
