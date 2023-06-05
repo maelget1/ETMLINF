@@ -6,8 +6,12 @@
     ?>
 
     <main>
-        <h2>Welcome to Your Page</h2>
-        <p>This is the main content of your page.</p>
+        <!--formulaire de création de compte-->
+        <form action="createUser.php" method="post">
+            <input name="">
+            <input>
+            <input>
+        </form>
     </main>
 
     <?php
