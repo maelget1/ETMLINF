@@ -85,6 +85,7 @@ input {
 button {
   background-color: #333;
   border-radius: 10px;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -103,4 +104,16 @@ input {
   background-color: #333;
   font-weight: bold;
   color: white;
+}
+
+input[type="text"],
+textarea {
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #dddddd;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  box-shadow: 0 0 15px rgb(255, 137, 58);
+  border: 1px solid rgb(255, 137, 58);
 }
