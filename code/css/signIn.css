@@ -106,13 +106,13 @@ input {
   color: white;
 }
 
-input[type="text"],
+input,
 textarea {
   transition: all 0.3s ease-in-out;
   border: 1px solid #dddddd;
 }
 
-input[type="text"]:focus,
+input:focus,
 textarea:focus {
   box-shadow: 0 0 15px rgb(255, 137, 58);
   border: 1px solid rgb(255, 137, 58);
