@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 05 juin 2023 à 12:18
+-- Généré le : mar. 06 juin 2023 à 13:31
 -- Version du serveur :  5.7.11
 -- Version de PHP : 8.0.1
 
@@ -30,18 +30,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `t_account` (
   `acc_id` int(11) NOT NULL,
   `acc_username` varchar(30) NOT NULL,
+  `acc_mail` varchar(255) NOT NULL,
   `acc_firstname` varchar(50) NOT NULL,
   `acc_lastname` varchar(50) NOT NULL,
   `acc_password` text NOT NULL,
-  `acc_basket` int(11) NOT NULL
+  `acc_basket` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `t_account`
 --
 
-INSERT INTO `t_account` (`acc_id`, `acc_username`, `acc_firstname`, `acc_lastname`, `acc_password`, `acc_basket`) VALUES
-(2, 'root', 'rootfname', 'rootname', 'root', 1);
+INSERT INTO `t_account` (`acc_id`, `acc_username`, `acc_mail`, `acc_firstname`, `acc_lastname`, `acc_password`, `acc_basket`) VALUES
+(2, 'root', 'root.root@gmail.ocm', 'rootfname', 'rootname', 'root', 1),
+(7, 'ExcaliBreizh', 'mael.getain@gmail.com', 'Maël', 'Gétain', '$2y$10$ZOmv.A7X/7SlNdA7ctBWjetQ2uS.d.vWIWXgmKSm2GP9EaQ8iyROO', NULL);
 
 -- --------------------------------------------------------
 
@@ -115,7 +117,7 @@ ALTER TABLE `t_product`
 -- AUTO_INCREMENT pour la table `t_account`
 --
 ALTER TABLE `t_account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `t_basket`
