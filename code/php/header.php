@@ -8,7 +8,7 @@
         <h1>ETML - Section Informatique</h1>
         <nav>
             <ul>
-                <li><a href="php/home.php">Home</a></li>
+                <li><a href="home.php">Home</a></li>
                 <li><a href="shop.php">Shop</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
