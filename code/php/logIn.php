@@ -18,14 +18,21 @@ session_start();
         <form action="loginUser.php" method="post">
             <div>
                 <label>Username :</label>
-                <input type="text" name="pseudo">
+                <input type="text" name="pseudo" autocomplete="off">
             </div>
             <div>
                 <label>Password :</label>
-                <input type="text" name="password">
+                <input type="password" name="password" autocomplete="off">
             </div>
             <input type="submit" value="Login">
         </form>
+        <?php
+            if(!$_SESSION["isConnected"])
+            {
+                echo "<p>".$_SESSION['error']."</p>";
+                $_SESSION['error'] = "";
+            }
+        ?>
     </main>
 
     <?php

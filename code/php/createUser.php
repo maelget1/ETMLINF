@@ -44,6 +44,7 @@ if(!is_null($pdo->result))
 {
     $isOK = false;
     $_SESSION["error"] .= "This user already exists.\n";
+    $pdo->result = "";
 }
 if($isOK)
 {

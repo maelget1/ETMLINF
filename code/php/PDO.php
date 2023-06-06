@@ -32,6 +32,15 @@ class PDOconn{
         $req->execute();
         $this->result = $req->fetchALL(PDO::FETCH_ASSOC);
     }
+
+    function loginUser($username, $password)
+    {
+        $req = $this->connector->prepare("SELECT * FROM `t_account` WHERE `acc_username` = :username AND `acc_password` = :use_password");
+        $req->bindValue('username', $username, PDO::PARAM_STR);
+        $req->bindValue('use_password', $password, PDO::PARAM_STR);
+        $req->execute();
+        $this->result = $req->fetchALL(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>
