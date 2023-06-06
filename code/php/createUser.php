@@ -48,10 +48,12 @@ if($isOK)
     $pswd = password_hash($_POST["password"], PASSWORD_BCRYPT);
     $pdo->createUser($pseudo, $lastname, $firstname, $pswd, $mail);
     $_SESSION["isConnected"] = true;
-    header('Location: signIn.php');
+    //TODO mettre la page du compte utilisateur
+    header('Location: home.php');
 }
 else
 {
-    header('Location: signIn.php');
+    //TODO mettre la page du compte utilisateur
+    header('Location: home.php');
 }
 ?>
