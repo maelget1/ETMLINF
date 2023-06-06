@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +10,7 @@
         <link rel="stylesheet" href="../css/shop.css">
     </head>
     <?php
-        include_once("../html/header.html");
+        include_once("../php/header.php");
     ?>
     <main>
         <h2>Shop</h2>
