@@ -102,8 +102,5 @@ h2 {
 input {
   background-color: #333;
   font-weight: bold;
-}
-
-textarea {
-  background-color: #333;
+  color: white;
 }
