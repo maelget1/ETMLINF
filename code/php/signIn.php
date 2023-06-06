@@ -17,7 +17,7 @@ session_start();
         <link rel="stylesheet" href="../css/signIn.css">
     </head>
     <?php
-        include_once("../html/header.html");
+        include_once("../php/header.php");
     ?>
 
     <main>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once("PDO.php");
+$pdo = new PDOconn();
 
 $isOK=true;
 $usernamePattern = '/^\w{1,30}/';
@@ -13,6 +14,7 @@ if(!preg_match($usernamePattern, $_POST["pseudo"]))
     $isOK = false;
     $_SESSION["error"] .= "The username must use only letters, numbers or underscore and must be under 50 characters.\n";
 }
+$pdo->searchDuplicate($_POST['pseudo']);
 if(!preg_match($mailPattern, $_POST["mail"]))
 {
     $isOK = false;
@@ -38,20 +40,26 @@ if($_POST["password"] != $_POST["confirmPassword"])
     $isOK = false;
     $_SESSION["error"] .= "Your password doesn't match the validation input.\n";
 }
+if(!is_null($pdo->result))
+{
+    $isOK = false;
+    $_SESSION["error"] .= "This user already exists.\n";
+}
 if($isOK)
 {
     $lastname = $_POST["lastname"];
     $firstname = $_POST["firstname"];
     $pseudo = $_POST["pseudo"];
     $mail = $_POST["mail"];
-    $pdo = new PDOconn();
     $pswd = password_hash($_POST["password"], PASSWORD_BCRYPT);
     $pdo->createUser($pseudo, $lastname, $firstname, $pswd, $mail);
     $_SESSION["isConnected"] = true;
-    header('Location: signIn.php');
+    //TODO mettre la page du compte utilisateur
+    header('Location: home.php');
 }
 else
 {
+    //TODO mettre la page du compte utilisateur
     header('Location: signIn.php');
 }
 ?>

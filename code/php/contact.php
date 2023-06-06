@@ -1,8 +1,11 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
     <?php
-        include_once("../html/header.html");
+        include_once("../php/header.php");
     ?>
 
     <head>
