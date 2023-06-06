@@ -16,6 +16,7 @@ else
 {
     //TODO mettre le nom d'utilisateur dans une variable de session
     $_SESSION['isConnected'] = true;
+    $_SESSION['connectedUser'] = $pseudo;
     header('Location:home.php');
 }
 ?>

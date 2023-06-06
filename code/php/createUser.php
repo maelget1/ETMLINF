@@ -8,7 +8,6 @@ $usernamePattern = '/^\w{1,30}/';
 $namesPattern = "/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{1,50}$/u";
 $mailPattern = "/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/";
 $passwordPattern = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/";
-//TODO créer la vérification du formulaire de création
 if(!preg_match($usernamePattern, $_POST["pseudo"]))
 {
     $isOK = false;
@@ -55,6 +54,7 @@ if($isOK)
     $pswd = password_hash($_POST["password"], PASSWORD_BCRYPT);
     $pdo->createUser($pseudo, $lastname, $firstname, $pswd, $mail);
     $_SESSION["isConnected"] = true;
+    $_SESSION['connectedUser'] = $pseudo;
     //TODO mettre la page du compte utilisateur
     header('Location: home.php');
 }
