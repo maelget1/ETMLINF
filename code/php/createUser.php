@@ -55,6 +55,7 @@ if($isOK)
     $mail = $_POST["mail"];
     $pswd = password_hash($_POST["password"], PASSWORD_BCRYPT);
     $pdo->createUser($pseudo, $lastname, $firstname, $pswd, $mail);
+
     $_SESSION["isConnected"] = true;
     $_SESSION['connectedUser'] = $pseudo;
     $_SESSION['userMail'] = $mail;

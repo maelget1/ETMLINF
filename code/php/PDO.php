@@ -43,7 +43,7 @@ class PDOconn{
 
     function loginUser($username)
     {
-        $req = $this->connector->prepare("SELECT `acc_username`, `acc_isAdmin`, `acc_mail`, `acc_password` FROM `t_account` WHERE `acc_username` = :username");
+        $req = $this->connector->prepare("SELECT `acc_id`, `acc_username`, `acc_isAdmin`, `acc_mail`, `acc_password` FROM `t_account` WHERE `acc_username` = :username");
         $req->bindValue('username', $username, PDO::PARAM_STR);
         $req->execute();
         $user = $this->createData($req);
@@ -71,6 +71,27 @@ class PDOconn{
         $req = $this->connector->query("SELECT * FROM `t_message`");
         $messages = $this->createData($req);
         return $messages;
+    }
+
+    function addProduct($userId, $productId)
+    {
+        $req = $this->connector->query("INSERT INTO `t_basket` (`bas_id`, `bas_fk_userID`, `bas_fk_productID`) VALUES (NULL, $userId, $productId);");
+    }
+
+    function listBasketProducts($userId)
+    {
+        $req = $this->connector->prepare("SELECT t_product.pro_name, t_product.pro_price, t_basket.bas_id FROM t_product INNER JOIN t_basket ON t_basket.bas_fk_userID = :userID AND t_basket.bas_fk_productID = t_product.pro_id");
+        $req->bindValue('userID', $userId, PDO::PARAM_INT);
+        $req->execute();
+        $products = $this->createData($req);
+        return $products;
+    }
+
+    function removeFromCart($id)
+    {
+        $req = $this->connector->prepare("DELETE FROM `t_basket` WHERE `t_basket`.`bas_id` = :id");
+        $req->bindValue('id', $id, PDO::PARAM_INT);
+        $req->execute();
     }
 }
 

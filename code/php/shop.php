@@ -34,7 +34,11 @@ $products = $pdo->selectAllProducts();
                 <h3><?=$product['pro_name']?></h3>
                 <p><?=$product['pro_description']?></p>
                 <p>Prix: CHF <?=$product['pro_price']?></p>
-                <button>Ajouter au panier</button>
+                <form action="addToCart.php" method="POST">
+                    <input name="productID" type="hidden" value="<?=$product['pro_id']?>">
+                    <button type="submit">Ajouter au panier</button>           
+                </form>
+                
             </div>
             <?php
             }
