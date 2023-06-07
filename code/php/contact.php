@@ -17,18 +17,30 @@ session_start();
 
     <main>
         <h2>Contactez nous</h2>
-        <form>
+        <form action="contactUs.php" method="POST">
             <label for="name">Nom:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required  autocomplete="off">
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required  autocomplete="off">
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" required  autocomplete="off"></textarea>
 
             <button type="submit">Envoyer</button>
         </form>
+        <?php
+            if($_SESSION["validation"] == "")
+            {
+                echo "<p>".$_SESSION['error']."</p>";
+                $_SESSION['error'] = "";
+            }
+            else
+            {
+                echo "<p>".$_SESSION['validation']."</p>";
+                $_SESSION['validation'] = "";
+            }
+        ?>
     </main>
 
     <?php

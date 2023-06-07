@@ -17,7 +17,7 @@ else
 {
     $_SESSION['isConnected'] = true;
     $_SESSION['connectedUser'] = $_POST['pseudo'];
-    if($user[0]['isAdmin'] == 1)
+    if($user[0]['acc_isAdmin'] == 1)
     {
         $_SESSION['admin'] = true;
     }
