@@ -65,6 +65,13 @@ class PDOconn{
         $req->bindValue('usermessage', $message, PDO::PARAM_STR);
         $req->execute();
     }
+
+    function selectAllMessages()
+    {
+        $req = $this->connector->query("SELECT * FROM `t_message`");
+        $messages = $this->createData($req);
+        return $messages;
+    }
 }
 
 ?>
