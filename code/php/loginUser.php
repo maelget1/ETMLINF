@@ -5,18 +5,19 @@ $pdo = new PDOconn();
 $isOK=true;
 $usernamePattern = '/^\w{1,30}/';
 $passwordPattern = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/";
-$pswd = password_hash($_POST["password"], PASSWORD_BCRYPT);
-$pdo->loginUser($_POST['pseudo'], $pswd);
-if(is_null($pdo->result))
+$user = $pdo->loginUser($_POST['pseudo']);
+var_dump($user);
+$pswd = password_verify($_POST['password'], $user[0]['acc_password']);
+if(empty($user) || !$pswd)
 {
     $_SESSION['error'] = "Wrong username or password. Please try again.";
     header('Location:logIn.php');
 }
 else
 {
-    //TODO mettre le nom d'utilisateur dans une variable de session
     $_SESSION['isConnected'] = true;
     $_SESSION['connectedUser'] = $_POST['pseudo'];
+    //if()
     header('Location:home.php');
 }
 ?>

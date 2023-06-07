@@ -13,12 +13,12 @@ if(!preg_match($usernamePattern, $_POST["pseudo"]))
     $isOK = false;
     $_SESSION["error"] .= "Le nom d'utilisateur ne doit contenir que des lettres, des chiffres ou des tirets du bas. De plus, il doit faire moins de 50 caractères\n";
 }
-$pdo->searchDuplicate($_POST['pseudo'], $_POST['mail']);
 if(!preg_match($mailPattern, $_POST["mail"]))
 {
     $isOK = false;
     $_SESSION["error"] .= "Votre mail ne suit pas la norme de nommage d'une adresse mail. (exemple.name@domain.com).\n";
 }
+$pdo->searchDuplicate($_POST['pseudo'], $_POST['mail']);
 if(!preg_match($namesPattern, $_POST["firstname"]))
 {
     $isOK = false;
@@ -40,9 +40,10 @@ if($_POST["password"] != $_POST["confirmPassword"])
     $_SESSION["error"] .= "La confirmation du mot de passe ne corresponds pas.\n";
 }
 //TODO split la requête pour vérifier les mails et les pseudos de manières indépendantes
-if(!is_null($pdo->result))
+if(!empty($pdo->result))
 {
     $isOK = false;
+    var_dump($pdo->result);
     $_SESSION["error"] .= "cet utilisateur existe déjà avec ce nom ou cette adresse mail. veuillez choisir un autre nom ou une autre adresse mail.\n";
     $pdo->result = "";
 }
@@ -62,6 +63,6 @@ if($isOK)
 else
 {
     //TODO mettre la page du compte utilisateur
-    header('Location: signIn.php');
+    //header('Location: signIn.php');
 }
 ?>
