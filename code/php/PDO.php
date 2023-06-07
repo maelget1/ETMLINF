@@ -37,7 +37,8 @@ class PDOconn{
         $req->bindValue('username', $username, PDO::PARAM_STR);
         $req->bindValue('email', $mail, PDO::PARAM_STR);
         $req->execute();
-        $this->result = $req->fetchALL(PDO::FETCH_ASSOC);
+        $user = $this->createData($req);
+        return $user;
     }
 
     function loginUser($username)

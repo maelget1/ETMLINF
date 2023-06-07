@@ -17,7 +17,10 @@ else
 {
     $_SESSION['isConnected'] = true;
     $_SESSION['connectedUser'] = $_POST['pseudo'];
-    //if()
+    if($user[0]['isAdmin'] == 1)
+    {
+        $_SESSION['admin'] = true;
+    }
     header('Location:home.php');
 }
 ?>
