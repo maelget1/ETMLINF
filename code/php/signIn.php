@@ -24,30 +24,30 @@ session_start();
         <!--formulaire de création de compte-->
         <form action="createUser.php" method="post">
             <div>
-                <label>Username :</label>
-                <input type="text" name="pseudo" autocomplete="off" placeholder="example: J0hnD03">
+                <label>Nom d'utilisateur:</label>
+                <input type="text" name="pseudo" autocomplete="off" placeholder="exemple: J0hnD03">
             </div>
             <div>
-                <label>Mail :</label>
-                <input type="text" name="mail" autocomplete="off" placeholder="example: john.doe@gmail.com">
+                <label>Email:</label>
+                <input type="text" name="mail" autocomplete="off" placeholder="exemple: john.doe@gmail.com">
             </div>
             <div>
-                <label>Firstname :</label>
-                <input type="text" name="firstname" autocomplete="off" placeholder="example: John">
+                <label>Prénom:</label>
+                <input type="text" name="firstname" autocomplete="off" placeholder="exemple: John">
             </div>
             <div>
-                <label>Lastname :</label>
-                <input type="text" name="lastname" autocomplete="off" placeholder="example: Doe">
+                <label>Nom:</label>
+                <input type="text" name="lastname" autocomplete="off" placeholder="exemple: Doe">
             </div>
             <div>
-                <label>Password :</label>
-                <input type="password" name="password" autocomplete="off" placeholder="min. 8 characters (1 Upper, 1 Lower, 1 digit, 1 special character)">
+                <label>Mot de passe:</label>
+                <input type="password" name="password" autocomplete="off" placeholder="min. 8 caractères (1 Majuscule, 1 minuscule, 1 chiffre, 1 caractères spécial)">
             </div>
             <div>
-                <label>Confirm password :</label>
+                <label>Confirmez le mot de passe:</label>
                 <input type="password" name="confirmPassword" autocomplete="off">
             </div>
-            <input type="submit" value="Create my account">
+            <input type="submit" value="Créer mon compte">
         </form>
         <?php
             if(!$_SESSION["isConnected"])

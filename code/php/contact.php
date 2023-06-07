@@ -11,14 +11,14 @@ session_start();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact Page</title>
+        <title>Page de contact</title>
         <link rel="stylesheet" href="../css/contact.css">
     </head>
 
     <main>
-        <h2>Contact Us</h2>
+        <h2>Contactez nous</h2>
         <form>
-            <label for="name">Name:</label>
+            <label for="name">Nom:</label>
             <input type="text" id="name" name="name" required>
 
             <label for="email">Email:</label>
@@ -27,7 +27,7 @@ session_start();
             <label for="message">Message:</label>
             <textarea id="message" name="message" required></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Envoyer</button>
         </form>
     </main>
 

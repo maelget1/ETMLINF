@@ -8,7 +8,7 @@ $products = $pdo->selectAllProducts();
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Shop Page</title>
+        <title>Boutique ETML</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/shop.css">
     </head>
@@ -16,7 +16,7 @@ $products = $pdo->selectAllProducts();
         include_once("../php/header.php");
     ?>
     <main>
-        <h2>Shop</h2>
+        <h2>Boutique</h2>
         <div class="containerProducts">
             <?php
             foreach($products as $product)

@@ -11,38 +11,39 @@ $passwordPattern = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8
 if(!preg_match($usernamePattern, $_POST["pseudo"]))
 {
     $isOK = false;
-    $_SESSION["error"] .= "The username must use only letters, numbers or underscore and must be under 50 characters.\n";
+    $_SESSION["error"] .= "Le nom d'utilisateur ne doit contenir que des lettres, des chiffres ou des tirets du bas. De plus, il doit faire moins de 50 caractères\n";
 }
-$pdo->searchDuplicate($_POST['pseudo']);
+$pdo->searchDuplicate($_POST['pseudo'], $_POST['mail']);
 if(!preg_match($mailPattern, $_POST["mail"]))
 {
     $isOK = false;
-    $_SESSION["error"] .= "Your mail doesn't match with the mail convention (exemple.name@domain.com).\n";
+    $_SESSION["error"] .= "Votre mail ne suit pas la norme de nommage d'une adresse mail. (exemple.name@domain.com).\n";
 }
 if(!preg_match($namesPattern, $_POST["firstname"]))
 {
     $isOK = false;
-    $_SESSION["error"] .= "Your firstname is too long or contains other characters than letters. (50 characters max.)\n";
+    $_SESSION["error"] .= "Votre prénom est trop long ou contient trop de caractères. (50 caractères max.)\n";
 }
 if(!preg_match($namesPattern, $_POST["lastname"]))
 {
     $isOK = false;
-    $_SESSION["error"] .= "Your lastname is too long or contains other characters than letters. (50 characters max.)\n";
+    $_SESSION["error"] .= "Votre nom est trop long ou contient trop de caractères. (50 caractères max.)\n";
 }
 if(!preg_match($passwordPattern, $_POST["password"]))
 {
     $isOK = false;
-    $_SESSION["error"] .= "Your password doesn't match the password complexity.\n";
+    $_SESSION["error"] .= "votre mot de passe ne respecte pas les mesures imposées.\n";
 }
 if($_POST["password"] != $_POST["confirmPassword"])
 {
     $isOK = false;
-    $_SESSION["error"] .= "Your password doesn't match the validation input.\n";
+    $_SESSION["error"] .= "La confirmation du mot de passe ne corresponds pas.\n";
 }
+//TODO split la requête pour vérifier les mails et les pseudos de manières indépendantes
 if(!is_null($pdo->result))
 {
     $isOK = false;
-    $_SESSION["error"] .= "This user already exists.\n";
+    $_SESSION["error"] .= "cet utilisateur existe déjà avec ce nom ou cette adresse mail. veuillez choisir un autre nom ou une autre adresse mail.\n";
     $pdo->result = "";
 }
 if($isOK)

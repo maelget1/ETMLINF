@@ -17,14 +17,14 @@ session_start();
         <!--formulaire de création de compte-->
         <form action="loginUser.php" method="post">
             <div>
-                <label>Username :</label>
+                <label>Nom d'utilisateur:</label>
                 <input type="text" name="pseudo" autocomplete="off">
             </div>
             <div>
-                <label>Password :</label>
+                <label>Mot de passe:</label>
                 <input type="password" name="password" autocomplete="off">
             </div>
-            <input type="submit" value="Login">
+            <input type="submit" value="Se connecter">
         </form>
         <?php
             if(!$_SESSION["isConnected"])
