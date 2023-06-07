@@ -57,6 +57,7 @@ if($isOK)
     $pdo->createUser($pseudo, $lastname, $firstname, $pswd, $mail);
     $_SESSION["isConnected"] = true;
     $_SESSION['connectedUser'] = $pseudo;
+    $_SESSION['userMail'] = $mail;
     //TODO mettre la page du compte utilisateur
     header('Location: home.php');
 }

@@ -19,10 +19,10 @@ session_start();
         <h2>Contactez nous</h2>
         <form action="contactUs.php" method="POST">
             <label for="name">Nom:</label>
-            <input type="text" id="name" name="name" required  autocomplete="off">
+            <input type="text" id="name" name="name" required  autocomplete="off" <?php if($_SESSION['isConnected']){?>value="<?=$_SESSION['connectedUser']?>"<?php }?>>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required  autocomplete="off">
+            <input type="email" id="email" name="email" required  autocomplete="off" <?php if($_SESSION['isConnected']){?>value="<?=$_SESSION['userMail']?>"<?php }?>>
 
             <label for="message">Message:</label>
             <textarea id="message" name="message" required  autocomplete="off"></textarea>
