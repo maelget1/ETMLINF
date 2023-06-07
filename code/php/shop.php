@@ -1,5 +1,8 @@
 <?php
 session_start();
+include_once('PDO.php');
+$pdo = new PDOconn();
+$products = $pdo->selectAllProducts();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,34 +18,27 @@ session_start();
     <main>
         <h2>Shop</h2>
         <div class="containerProducts">
+            <?php
+            foreach($products as $product)
+            {
+                $image = imagecreatefromstring($product['pro_image']);
+                ob_start();
+                imagejpeg($image, null, 80);
+                $data = ob_get_contents();
+                ob_end_clean();
+            ?>
             <div class="product">
-                <img src="../images/axe.png" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Price: $19.99</p>
-                <button>Add to Cart</button>
+                <?php
+                echo '<img src="data:image/jpg;base64,'.base64_encode($data).'"alt='.$product['pro_name'].'>';
+                ?>
+                <h3><?=$product['pro_name']?></h3>
+                <p><?=$product['pro_description']?></p>
+                <p>Prix: CHF <?=$product['pro_price']?></p>
+                <button>Ajouter au panier</button>
             </div>
-            <div class="product">
-                <img src="../images/axe.png" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Price: $29.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="../images/axe.png" alt="Product 2">
-                <h3>Product 3</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Price: $29.99</p>
-                <button>Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="../images/axe.png" alt="Product 2">
-                <h3>Product 4</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Price: $29.99</p>
-                <button>Add to Cart</button>
-            </div>
+            <?php
+            }
+            ?>
         </div>
     </main>
 

@@ -20,6 +20,12 @@ class PDOconn{
         }
     }
 
+    public function createData($req)
+    {
+        $results = $req->fetchALL(PDO::FETCH_ASSOC);
+        return $results;
+    }
+
     function createUser($username, $name, $firstname, $password, $mail)
     {
         $req = $this->connector->query("INSERT INTO `t_account` (`acc_id`, `acc_username`, `acc_mail`, `acc_firstname`, `acc_lastname`, `acc_password`, `acc_basket`) VALUES (NULL, '$username', '$mail', '$firstname', '$name', '$password', NULL);");
@@ -40,6 +46,13 @@ class PDOconn{
         $req->bindValue('use_password', $password, PDO::PARAM_STR);
         $req->execute();
         $this->result = $req->fetchALL(PDO::FETCH_ASSOC);
+    }
+
+    function selectAllProducts()
+    {
+        $req = $this->connector->query("SELECT * FROM `t_product`");
+        $products = $this->createData($req);
+        return $products;
     }
 }
 
