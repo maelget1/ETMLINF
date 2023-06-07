@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 07 juin 2023 à 13:00
+-- Généré le : mer. 07 juin 2023 à 13:13
 -- Version du serveur :  5.7.11
 -- Version de PHP : 8.0.1
 
@@ -43,7 +43,8 @@ CREATE TABLE `t_account` (
 
 INSERT INTO `t_account` (`acc_id`, `acc_username`, `acc_mail`, `acc_firstname`, `acc_lastname`, `acc_password`, `acc_isAdmin`) VALUES
 (2, 'root', 'root.root@gmail.ocm', 'rootfname', 'rootname', 'root', 0),
-(7, 'ExcaliBreizh', 'mael.getain@gmail.com', 'Maël', 'Gétain', '$2y$10$ZOmv.A7X/7SlNdA7ctBWjetQ2uS.d.vWIWXgmKSm2GP9EaQ8iyROO', 1);
+(7, 'ExcaliBreizh', 'mael.getain@gmail.com', 'Maël', 'Gétain', '$2y$10$ZOmv.A7X/7SlNdA7ctBWjetQ2uS.d.vWIWXgmKSm2GP9EaQ8iyROO', 1),
+(8, 'Gorfort', 'Thibaud.Racine@eduvaud.ch', 'Thibaud', 'Racine', '$2y$10$Huo6DNnoT59uDBCySB58e.IVLYlbvHbTz1KrtZsjFc7W6pTWxFU.O', 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ ALTER TABLE `t_product`
 -- AUTO_INCREMENT pour la table `t_account`
 --
 ALTER TABLE `t_account`
-  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `acc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `t_basket`
