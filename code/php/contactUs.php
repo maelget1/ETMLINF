@@ -19,10 +19,10 @@ if($isOK)
     $pdo = new PDOconn();
     $pdo->sendMessage($_POST['name'], $_POST['email'], $_POST['message']);
     $_SESSION['validation'] = "Nous avons bien reçu votre message. Nous essayerons d'y répondre au plus vite";
-    //header('Location:contact.php');
+    header('Location:contact.php');
 }
 else
 {
-    //header('Location:contact.php');
+    header('Location:contact.php');
 }
 ?>

@@ -59,7 +59,7 @@ class PDOconn{
 
     function sendMessage($name, $mail, $message)
     {
-        $req = $this->connector->prepare("INSERT INTO `t_message` (`mes_id`, `mes_nom`, `mes_mail`, `mes_message`) VALUES (NULL, :username, :usermail, :usermessage);");
+        $req = $this->connector->prepare("INSERT INTO `t_message` (`mes_id`, `mes_name`, `mes_mail`, `mes_message`) VALUES (NULL, :username, :usermail, :usermessage);");
         $req->bindValue('username', $name, PDO::PARAM_STR);
         $req->bindValue('usermail', $mail, PDO::PARAM_STR);
         $req->bindValue('usermessage', $message, PDO::PARAM_STR);
