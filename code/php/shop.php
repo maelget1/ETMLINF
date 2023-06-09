@@ -17,6 +17,14 @@ $products = $pdo->selectAllProducts();
     ?>
     <main>
         <h2>Boutique</h2>
+        <?php
+            if(!$_SESSION['isConnected'])
+            {
+        ?>
+        <p>Veuilez vous connecter ou créer un compte pour acheter des produits</p>
+        <?php
+            }
+        ?>
         <div class="containerProducts">
             <?php
             foreach($products as $product)
@@ -34,11 +42,17 @@ $products = $pdo->selectAllProducts();
                 <h3><?=$product['pro_name']?></h3>
                 <p><?=$product['pro_description']?></p>
                 <p>Prix: CHF <?=$product['pro_price']?></p>
+                <?php
+                    if($_SESSION['isConnected'])
+                    {
+                ?>
                 <form action="addToCart.php" method="POST">
                     <input name="productID" type="hidden" value="<?=$product['pro_id']?>">
                     <button type="submit">Ajouter au panier</button>           
                 </form>
-                
+                <?php
+                    }                
+                ?>
             </div>
             <?php
             }
