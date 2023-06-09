@@ -28,7 +28,13 @@ class PDOconn{
 
     function createUser($username, $name, $firstname, $password, $mail)
     {
-        $req = $this->connector->query("INSERT INTO `t_account` (`acc_id`, `acc_username`, `acc_mail`, `acc_firstname`, `acc_lastname`, `acc_password`) VALUES (NULL, '$username', '$mail', '$firstname', '$name', '$password');");
+        $req = $this->connector->prepare("INSERT INTO `t_account` (`acc_id`, `acc_username`, `acc_mail`, `acc_firstname`, `acc_lastname`, `acc_password`) VALUES (NULL, :username, :mail, :firstname, :lastname, :userpassword)");
+        $req->bindValue(':username', $username, PDO::PARAM_STR);
+        $req->bindValue(':mail', $mail, PDO::PARAM_STR);
+        $req->bindValue(':firstname', $firstname, PDO::PARAM_STR);
+        $req->bindValue(':lastname', $name, PDO::PARAM_STR);  
+        $req->bindValue('userpassword', $password, PDO::PARAM_STR); 
+        $req->execute();
     }
 
     function searchDuplicate($username, $mail)
@@ -75,7 +81,10 @@ class PDOconn{
 
     function addProduct($userId, $productId)
     {
-        $req = $this->connector->query("INSERT INTO `t_basket` (`bas_id`, `bas_fk_userID`, `bas_fk_productID`) VALUES (NULL, $userId, $productId);");
+        $req = $this->connector->prepare("INSERT INTO `t_basket` (`bas_id`, `bas_fk_userID`, `bas_fk_productID`) VALUES (NULL, :userID, :productID);");
+        $req->bindValue('userID', $userId, PDO::PARAM_INT);
+        $req->bindValue('productID', $productId, PDO::PARAM_INT);
+        $req->execute();
     }
 
     function listBasketProducts($userId)

@@ -30,7 +30,7 @@ session_start();
             <button type="submit">Envoyer</button>
         </form>
         <?php
-            if($_SESSION["validation"] == "")
+            if($_SESSION['validation'] == "")
             {
                 echo "<p>".$_SESSION['error']."</p>";
                 $_SESSION['error'] = "";
