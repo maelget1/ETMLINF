@@ -22,7 +22,11 @@ session_start();
 
     <main>
         <!--formulaire de création de compte-->
-        <form action="createUser.php" method="post">
+        <form action="createUser.php" method="post" enctype="multipart/form-data">
+            <div>
+                <img class="profilePicture" src="../images/noProfile.png" alt="default profile picture">
+                <label>Ajouter une photo de profil</label>
+            </div>
             <div>
                 <label>Nom d'utilisateur:</label>
                 <input type="text" name="pseudo" autocomplete="off" placeholder="exemple: J0hnD03">

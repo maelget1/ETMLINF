@@ -117,3 +117,8 @@ textarea:focus {
   box-shadow: 0 0 15px rgb(255, 137, 58);
   border: 1px solid rgb(255, 137, 58);
 }
+
+.profilePicture{
+  border-radius: 50%;
+}
+

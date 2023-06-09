@@ -18,11 +18,24 @@ $products = $pdo->listBasketProducts($_SESSION['userID']);
     <main>
         <h2>Panier</h2>
         <?php
-            foreach($products as $product)
+            if(!empty($products))
+            {
+                foreach($products as $product)
+                {
+        ?>
+        <h3><?=$product['pro_name']?> | CHF <?=$product['pro_price']?></h3>
+        <button onclick="confirmFunction()">supprimer le produit</button>
+        <?php
+                }
+            
+        ?>
+        <button>Payer</button>
+        <?php
+            }
+            else
             {
         ?>
-            <h3><?=$product['pro_name']?> | CHF <?=$product['pro_price']?></h3>
-            <button onclick="confirmFunction()">supprimer le produit</button>
+        <p>Vous n'avez aucun article dans votre panier</p>
         <?php
             }
         ?>
