@@ -14,15 +14,15 @@ if(!preg_match($mailPattern, $_POST["email"]))
     $isOK = false;
     $_SESSION["error"] .= "Votre mail ne suit pas la norme de nommage d'une adresse mail. (exemple.name@domain.com).\n";
 }
-if(!$isOK)
+if($isOK)
 {
     $pdo = new PDOconn();
     $pdo->sendMessage($_POST['name'], $_POST['email'], $_POST['message']);
     $_SESSION['validation'] = "Nous avons bien reçu votre message. Nous essayerons d'y répondre au plus vite";
-    header('Location:contact.php');
+    //header('Location:contact.php');
 }
 else
 {
-    header('Location:contact.php');
+    //header('Location:contact.php');
 }
 ?>
