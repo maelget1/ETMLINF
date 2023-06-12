@@ -25,7 +25,7 @@ session_start();
             <input type="email" id="email" name="email" required  autocomplete="off" <?php if($_SESSION['isConnected']){?>value="<?=$_SESSION['userMail']?>"<?php }?>>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" required  autocomplete="off"></textarea>
+            <textarea id="message" name="message" required  autocomplete="off"><?=$_SESSION['conMessage']?></textarea>
 
             <button type="submit">Envoyer</button>
         </form>

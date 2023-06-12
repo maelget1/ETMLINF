@@ -1,12 +1,5 @@
 <?php
 session_start();
-//if(isset($_SESSION["error"]))
-//{
-    $_SESSION["error"];
-//}
-//if(isset($_SESSION["isConnected"])){
-    $_SESSION["isConnected"];
-//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,30 +14,32 @@ session_start();
     ?>
 
     <main>
+        <!--
         <form action="editProfilePicture.php" method="post" enctype="multipart/form-data" id="form">
             <div>
                 <img class="profilePicture" src="../images/noProfile.png" alt="default profile picture">
                 <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
             </div>
         </form>
+        -->
         <!--formulaire de création de compte-->
         <form action="createUser.php" method="post" enctype="multipart/form-data">
             
             <div>
                 <label>Nom d'utilisateur:</label>
-                <input type="text" name="pseudo" autocomplete="off" placeholder="exemple: J0hnD03">
+                <input type="text" name="pseudo" autocomplete="off" placeholder="exemple: J0hnD03" value="<?=$_SESSION['logUsername']?>">
             </div>
             <div>
                 <label>Email:</label>
-                <input type="text" name="mail" autocomplete="off" placeholder="exemple: john.doe@gmail.com">
+                <input type="text" name="mail" autocomplete="off" placeholder="exemple: john.doe@gmail.com" value="<?=$_SESSION['logEmail']?>">
             </div>
             <div>
                 <label>Prénom:</label>
-                <input type="text" name="firstname" autocomplete="off" placeholder="exemple: John">
+                <input type="text" name="firstname" autocomplete="off" placeholder="exemple: John" value="<?=$_SESSION['logFirstname']?>">
             </div>
             <div>
                 <label>Nom:</label>
-                <input type="text" name="lastname" autocomplete="off" placeholder="exemple: Doe">
+                <input type="text" name="lastname" autocomplete="off" placeholder="exemple: Doe" value="<?=$_SESSION['logLastname']?>">
             </div>
             <div>
                 <label>Mot de passe:</label>

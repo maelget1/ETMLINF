@@ -43,7 +43,6 @@ if($_POST["password"] != $_POST["confirmPassword"])
 if(!empty($user))
 {
     $isOK = false;
-    var_dump($user);
     $_SESSION["error"] .= "cet utilisateur existe déjà avec ce nom ou cette adresse mail. veuillez choisir un autre nom ou une autre adresse mail.\n";
     $pdo->result = "";
 }
@@ -59,11 +58,19 @@ if($isOK)
     $_SESSION["isConnected"] = true;
     $_SESSION['connectedUser'] = $pseudo;
     $_SESSION['userMail'] = $mail;
+    $_SESSION['logUsername'] = "";
+    $_SESSION['logEmail'] = "";
+    $_SESSION['logFirstname'] = "";
+    $_SESSION['logLastname'] = "";
     //TODO mettre la page du compte utilisateur
     header('Location: home.php');
 }
 else
 {
+    $_SESSION['logUsername'] = $_POST['pseudo'];
+    $_SESSION['logEmail'] = $_POST['mail'];
+    $_SESSION['logFirstname'] = $_POST['firstname'];
+    $_SESSION['logLastname'] = $_POST["lastname"];
     header('Location: signIn.php');
 }
 ?>
