@@ -14,8 +14,8 @@ session_start();
     ?>
 
     <main>
-        <h2>Welcome to Your Page !</h2>
-        <p>This is the main con tent of your page.</p>
+        <h2>Bienvenue sur notre site !</h2>
+        <p>Découvrez l'essence de l'ETML à Lausanne ! Représentez notre identité visuelle avec style et fierté grâce à nos produits dérivés uniques. Montrez au monde que vous faites partie de cette communauté dynamique, innovante et unie. Explorez notre sélection dès maintenant et rejoignez le mouvement ETML !</p>
     </main>
 
     <?php
