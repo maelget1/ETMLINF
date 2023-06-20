@@ -43,10 +43,6 @@ CREATE TABLE `t_account` (
 -- Déchargement des données de la table `t_account`
 --
 
-INSERT INTO `t_account` (`acc_id`, `acc_username`, `acc_mail`, `acc_firstname`, `acc_lastname`, `acc_password`, `acc_isAdmin`) VALUES
-(2, 'root', 'root.root@gmail.ocm', 'rootfname', 'rootname', 'root', 0),
-(7, 'ExcaliBreizh', 'mael.getain@gmail.com', 'Maël', 'Gétain', '$2y$10$ZOmv.A7X/7SlNdA7ctBWjetQ2uS.d.vWIWXgmKSm2GP9EaQ8iyROO', 1),
-(8, 'Gorfort', 'Thibaud.Racine@eduvaud.ch', 'Thibaud', 'Racine', '$2y$10$Huo6DNnoT59uDBCySB58e.IVLYlbvHbTz1KrtZsjFc7W6pTWxFU.O', 1);
 
 -- --------------------------------------------------------
 
